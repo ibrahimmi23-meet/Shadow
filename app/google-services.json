@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "611279120911",
+    "project_id": "shadow-7fda4",
+    "storage_bucket": "shadow-7fda4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611279120911:android:c9afd8a1f144c2cd7c917a",
+        "android_client_info": {
+          "package_name": "com.example.shadow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdnIWbl8q5pugZoVb88Mb20isfhJsg6xI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
