@@ -28,7 +28,6 @@ public class LogInActivity extends AppCompatActivity {
     private EditText passwordEditText;
     private Button loginButton;
     private ImageView passwordVisibilityIcon;
-
     private ImageButton btnPhotoLog;
 
     private FirebaseAuth firebaseAuth;
@@ -110,7 +109,14 @@ public class LogInActivity extends AppCompatActivity {
                                 // User login successful
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
                                 Toast.makeText(LogInActivity.this, "Logged in as " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(LogInActivity.this, HomeActivity.class));
+
+                                // Check if the user is an admin
+                                if (isAdmin(email)) {
+                                    startActivity(new Intent(LogInActivity.this, AdminActivity.class));
+                                } else {
+                                    startActivity(new Intent(LogInActivity.this, HomeActivity.class));
+                                }
+
                                 finish(); // Close the LoginActivity
                             } else {
                                 // User login failed
@@ -142,5 +148,12 @@ public class LogInActivity extends AppCompatActivity {
                 Log.e("LogInActivity", "Error handling selected image: " + e.getMessage());
             }
         }
+    }
+
+    // Method to check if the user is an admin
+    private boolean isAdmin(String email) {
+        // Replace the hardcoded admin email with the actual admin email
+        String adminEmail = "Salam@gmail.com";
+        return email.equals(adminEmail);
     }
 }

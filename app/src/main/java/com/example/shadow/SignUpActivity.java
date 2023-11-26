@@ -91,13 +91,10 @@ public class SignUpActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         // User registration successful
-                                        // You can save the phone number to Firebase Firestore or Realtime Database here.
-
-                                        // Redirect to AdminActivity if the email is the specified admin email
-                                        if (email.equals("ibrah@gmail.com")) {
+                                        // Check if the user is an admin
+                                        if (isAdmin(email, password)) {
                                             startActivity(new Intent(SignUpActivity.this, AdminActivity.class));
                                         } else {
-                                            // Redirect to HomeActivity for non-admin users
                                             startActivity(new Intent(SignUpActivity.this, HomeActivity.class));
                                         }
 
@@ -167,5 +164,14 @@ public class SignUpActivity extends AppCompatActivity {
 
         // Move the cursor to the end of the text to maintain cursor position
         passwordEditText.setSelection(passwordEditText.getText().length());
+    }
+
+    // Method to check if the user is an admin
+    private boolean isAdmin(String email, String password) {
+        // You can replace the hardcoded values with a more secure approach
+        String adminEmail = "Salam@gmail.com";
+        String adminPassword = "ROHASHTGIL707070";
+
+        return email.equals(adminEmail) && password.equals(adminPassword);
     }
 }
